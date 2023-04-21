@@ -20,13 +20,16 @@ function showMovies(movies) {
     main.innerHTML = ''
 
     movies.forEach((movie) => {
-        const { title, poster_path, vote_average, overview } = movie
+        const { title, poster_path, vote_average, overview, release_date } = movie
 
         const movieEl = document.createElement('div')
         movieEl.classList.add('movie')
 
         movieEl.innerHTML = `
+            <div>
+            <span class="releaseDate"> ${release_date} </span>
             <img src="${IMG_PATH + poster_path}" alt="${title}">
+            </div>
             <div class="movie-info">
           <h3>${title}</h3>
           <span class="${getClassByRate(vote_average)}">${vote_average}</span>
